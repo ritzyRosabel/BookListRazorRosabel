@@ -14,19 +14,34 @@
         <form method="post">
             @if (Model.Books.Count() > 0)
             {
-                <table class="table table-striped border" >
+                <table class="table table-striped border">
                     <tr class="table-secondary">
                         <th>
                             <label asp-for="Books.FirstOrDefault().Name"></label>
                         </th>
-                           <th>
-                               <label asp-for="Books.FirstOrDefault().Author"></label>
-                           </th>
+                        <th>
+                            <label asp-for="Books.FirstOrDefault().Author"></label>
+                        </th>
                         <th>
 
                         </th>
                     </tr>
-                  
+                    @foreach (var item in Model.Books)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Author)
+                            </td>
+                            <td>
+                                <button class="btn btn-danger btn-sm">Delete</button>
+                                <a class="btn btn-success btn-sm"> Edit</a>
+                            </td>
+                            
+                        </tr>
+                    }
                 </table>
             }
             else
@@ -38,7 +53,7 @@
 </div>
 
 <div class="container">
-   
+
 </div>
 
 
