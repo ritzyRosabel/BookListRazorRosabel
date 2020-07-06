@@ -4,5 +4,37 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h2 class="text-inf0">Create New Book</h2>
+<br />
+
+<div class="container border" style="padding:30px">
+    <form method="post">
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Books.Name"></label>
+            </div>
+            <div class="col-6 ">
+                <input asp-for="Books.Name" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+
+            <div class="col-4">
+                <label asp-for="Books.Author"></label>
+            </div>
+            <div class="col-6 ">
+                <input asp-for="Books.Author" class="form-control" />
+            </div>
+        </div> 
+        <div class="form-group row">
+
+            <div class="col-4">
+                <label asp-for="Books.Author"></label>
+            </div>
+            <div class="col-6 ">
+                <input asp-for="Books.ISBN" class="form-control" />
+            </div>
+        </div>
+    </form>
+</div>
 
