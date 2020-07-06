@@ -10,7 +10,7 @@
 <div class="container border" style="padding:30px">
     <form method="post">
         <div class="form-group row">
-            <div class="col-4">
+            <div class="col-3">
                 <label asp-for="Books.Name"></label>
             </div>
             <div class="col-6 ">
@@ -19,7 +19,7 @@
         </div>
         <div class="form-group row">
 
-            <div class="col-4">
+            <div class="col-3">
                 <label asp-for="Books.Author"></label>
             </div>
             <div class="col-6 ">
@@ -28,11 +28,19 @@
         </div> 
         <div class="form-group row">
 
-            <div class="col-4">
+            <div class="col-3">
                 <label asp-for="Books.Author"></label>
             </div>
             <div class="col-6 ">
                 <input asp-for="Books.ISBN" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3 offset-3">
+                <input type="submit" name="Create" class="btn btn-primary form-control" />
+            </div>
+            <div class="col-3">
+                <a asp-page="Index" class="btn btn-success form-control"> Back to List</a>
             </div>
         </div>
     </form>
