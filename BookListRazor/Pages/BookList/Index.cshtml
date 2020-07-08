@@ -76,7 +76,10 @@
     </div>
 
 </div>
-@section Scripts{ 
-<script src="~/js/booklist.js"></script>
+@section Scripts{
+    <script src="~/js/booklist.js"></script>
 
+    $(document).ready( function () {
+    $('#DT_load').DataTable();
+    } );
 }
