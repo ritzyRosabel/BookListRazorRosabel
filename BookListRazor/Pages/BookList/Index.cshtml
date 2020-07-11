@@ -77,9 +77,23 @@
 
 </div>
 @section Scripts{
-    <script src="~/js/booklist.js"></script>
+    <script src="~/js/booklist.js">    
+        $(document).ready( function() {
+            $('#DT_load').Datatable({
+                "ajax": {
+                    "url": "../Book/GetAll",
+                    "type": "POST",
+                    "datatype":"json"
+                },
+                "columns": [
+                    {"data":"Name", "name":"Name", "autoWidth":true},
+                    {"data":"Author", "nameTAuthor", "autoWidth":true},
+                    { "data": "ISBN", "name": "ISBN", "autoWidth": true }
+                ]
+            });
+           // oTable = $()
+            });
+    </script>
 
-    $(document).ready( function () {
-    $('#DT_load').DataTable();
-    } );
+
 }
