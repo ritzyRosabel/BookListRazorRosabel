@@ -21,5 +21,10 @@ namespace BookListRazor.Controllers
 
             return Json(new { data = _db.Books.ToList() });
         }
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+
+        }
     }
 }
