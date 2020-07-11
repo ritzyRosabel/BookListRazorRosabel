@@ -19,10 +19,15 @@ function loadDataTable() {
                 "data": "id",
                 "render": function (data) {
                     return `<div>
-                        <a href = "/BookList/Edit?id=${data}" class = 'btn btn-success text-white' style = 'cursor : pointer; width : 100px;'></a>
+                        <a href = "/BookList/Edit?id=${data}" class = 'btn btn-success text-white' style = 'cursor : pointer; width : 100px;'>Edit</a>
+                        <a class ='btn btn-danger text-white' style = 'cursor:pointer; width:100px'> Delete</a>
                             </div>`
                 }
             }
-        ]
+        ],
+        "language": {
+            "emptyTable": "No data found"
+        },
+        "width":"100%"
     });
 }
