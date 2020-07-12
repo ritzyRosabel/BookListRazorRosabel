@@ -20,7 +20,7 @@ function loadDataTable() {
                 "render": function (data) {
                     return `<div>
                         <a href = "/BookList/Edit?id=${data}" class = 'btn btn-success text-white' style = 'cursor : pointer; width : 70px;'>Edit</a>
-                        <a class ='btn btn-danger text-white' style = 'cursor:pointer; width:70px' onclick="Delete('/api/DeleteBook?id ='+${data})"> Delete</a>
+                        <a class ='btn btn-danger text-white' style = 'cursor:pointer; width:70px' onclick="Delete('/api/DeleteBook',${data})"> Delete</a>
                             </div>`;
                 },
                 "width":"40%"
@@ -33,7 +33,7 @@ function loadDataTable() {
     });
 }
 
-function Delete(url) {
+function Delete(url, id) {
     swal({
         title: "Are you sure you want to delete?",
         text: "If deleted, Data cannot be recovered",
@@ -41,10 +41,12 @@ function Delete(url) {
         dangerMode: true,
     }).then((willDelete) => {
         if (willDelete) {
-          
             $.ajax({
                 type: "DELETE",
                 url: url,
+                data: {
+                    "id":id
+                },
                 success: function (data) {
                     if (data.success) {
                         toastr.success(data.message);
