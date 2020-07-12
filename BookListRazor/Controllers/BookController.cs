@@ -16,21 +16,22 @@ namespace BookListRazor.Controllers
             _db = db;
         }
         [HttpGet]
-        [Route("api/Books")]
+        [Route("api/Book")]
         public IActionResult GetAll()
         {
 
             return Json(new { data = _db.Books.ToList() });
         }
         [HttpDelete]
-        public async Task<IActionResult> Delete(int id)
+        [Route("api/DeleteBook")]
+        public async Task<IActionResult> Delete([FromRoute]int id)
         {
-            var bookFromDb = _db.Books.FirstOrDefaultAsync(B => B.Id == id);
+            var bookFromDb =await _db.Books.FirstOrDefaultAsync(B => B.Id == id);
             if (bookFromDb == null)
             {
                 return Json(new { success = false, message = "Error while Deleting Book" });
             }
-            _db.Remove(bookFromDb);
+            _db.Books.Remove(bookFromDb);
             await _db.SaveChangesAsync();
             return Json(new { success = true, message = "successfully deleted the Book" });
 
